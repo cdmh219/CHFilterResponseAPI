@@ -25,7 +25,7 @@ const meetsConditions = (questions, filters) => {
 
     for(let i = 0; i < questions.length; i++){
         qFilter = filters.find(filter => filter.id === questions[i].id);
-        if (qFilterToCondition(questions[i], qFilter) === false) {
+        if (qFilter && qFilterToCondition(questions[i], qFilter) === false) {
             return false;
         }
     }
