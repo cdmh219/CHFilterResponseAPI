@@ -33,7 +33,7 @@ const meetsConditions = (questions, filters) => {
 };
 
 app.get('/:formId/filteredResponses', (req, res) => {
-    const parsedFilters = JSON.parse(req.query.filters);
+    const parsedFilters =  req.query.filters ? JSON.parse(req.query.filters):[];
     const limit = req.query.limit ? req.query.limit: 150;
 
     request(`https://api.fillout.com/v1/api/forms/${req.params.formId}/submissions`, {json: true, headers: {Authorization: `Bearer ${API_KEY}`}}, (error, response, body) => {
